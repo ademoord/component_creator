@@ -1,0 +1,10 @@
+<!-- 
+  file: /home/andromeda/Projects/Odoo/R01/custom_addons/component_creator/views/component_creator_views.xml
+  author: $andromeda
+  desc: Default viewset to display the custom component creator module
+ -->
+<odoo>
+  <data>
+
+  </data>
+</odoo>
