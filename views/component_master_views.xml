@@ -50,7 +50,7 @@
   <menuitem id="menu_component"
           name="Component Creator"
           action="action_component_master"
-          parent="menu_component_master"
+          parent="menu_component_creator_root"
           sequence="0"/>
   <!-- start of component master menu view -->
 

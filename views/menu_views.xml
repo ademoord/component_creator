@@ -3,10 +3,14 @@
 
   <!-- start of component master menu view -->
   <menuitem id="menu_component_creator_root"
-            name="Component Master"
+            name="Component Creator"
             sequence="0"/>
   <menuitem id="menu_component_master"
-            name="Component Name"
+            name="Component Master"
+            parent="menu_component_creator_root"
+            sequence="0"/>
+  <menuitem id="menu_component_master"
+            name="Item Master"
             parent="menu_component_creator_root"
             sequence="0"/>
   <!-- end of component master menu view -->

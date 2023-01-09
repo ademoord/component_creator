@@ -23,10 +23,11 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
-    ],
+        'security/ir.model.access.csv',
+        'views/menu_views.xml',
+        'views/component_master_views.xml',
+        'views/item_master_views.xml',
+],
 
     'installable': True,
     'auto_install': False,
