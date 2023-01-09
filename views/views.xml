@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <menuitem id="menu_component_creator_root"
+            name="Component Master"
+            sequence="0"/>
+  <menuitem id="menu_component_master"
+            name="Component Name"
+            parent="menu_component_creator_root"
+            sequence="0"/>
+  <menuitem id="menu_component"
+            name="Component Creator"
+            parent="menu_component_master"
+            sequence="0"/>
+</odoo>
