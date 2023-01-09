@@ -9,10 +9,6 @@
             name="Component Name"
             parent="menu_component_creator_root"
             sequence="0"/>
-  <menuitem id="menu_component"
-            name="Component Creator"
-            parent="menu_component_master"
-            sequence="0"/>
   <!-- end of component master menu view -->
 
 </odoo>
