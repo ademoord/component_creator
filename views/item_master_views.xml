@@ -7,6 +7,9 @@
     <field name="model">item.master</field>
     <field name="arch" type="xml">
         <tree>
+          <header>
+            <button name="button_name" type="object" string="Bismillah"/>
+          </header>
           <field name="name" string="Nama Item"/>
           <field name="component_name" string="Nama Komponen"/>
           <field name="percentage" string="Bobot Persentase Komponen (%)"/>

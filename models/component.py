@@ -7,4 +7,3 @@ class ComponentMaster(models.Model):
 
     name = fields.Char(string='Nama Komponen', required=True)
     process_time = fields.Float(string='Waktu Pengerjaan Komponen', required=True)
-
