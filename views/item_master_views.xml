@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+  <data>
 
   <!-- start of item master tree -->
   <record id="view_item_master_tree" model="ir.ui.view">
@@ -8,7 +9,7 @@
     <field name="arch" type="xml">
         <tree>
           <header>
-            <button name="button_name" type="object" string="Bismillah"/>
+            <button name="action_import_csv" type="object" class="oe_highlight" string="Bismillah"/>
           </header>
           <field name="name" string="Nama Item"/>
           <field name="component_name" string="Nama Komponen"/>
@@ -64,4 +65,5 @@
   <!-- start of component creator menu view -->
 
 
+  </data>
 </odoo>

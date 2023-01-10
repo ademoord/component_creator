@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api, exceptions
+import csv, base64
 
 class ItemMaster(models.Model):
     _name = 'item.master'
@@ -17,20 +18,43 @@ class ItemMaster(models.Model):
         if self.percentage > 100:
             raise exceptions.ValidationError("Maaf, bobot persentase harus dalam range 0-100%.")
 
-# class CustomImport(models.Model):
-#     _name = 'custom.import'
-#     _description = 'Custom Import'
+    
+    def import_csv(self, csv_file):
 
-#     item_name = fields.Char(string='Nama Item', required=True)
-#     component_name = fields.Many2one('component.master', string='Nama Komponen')
-#     start_time = fields.Datetime(string='Tanggal Mulai Pengerjaan', required=True)
-#     processing_time = fields.Float(string='Processing Time', required=True)
-#     component_percentage = fields.Float(string='Bobot Persentase Komponen (%)', digits=(4,2), required=True)
+        print(csv_file)
+        print(csv_file)
+        print(csv_file)
 
-#     @api.model
-#     def create(self, vals):
-#         if 'component_name' not in vals or not vals['component_name']:
-#             component = self.env['component.master'].create({'name': 'Komponen Baru'})
-#             vals['component_name'] = component.id
-#         return super().create(vals)
+        with open(csv_file, newline='') as csvfile:
+            spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+            for row in spamreader:
+                print(', '.join(row))
+
+        reader = csv.reader(test)
+        next(reader)
+        for row in reader:
+            record = {
+                'name'                  : row[0],
+                'component_name'        : row[1],
+                'percentage'            : row[2],
+                'processing_start_date' : row[3],
+                'finished_real_date'    : row[4],
+            }
+            self.env['item.master'].create(record)
+
+    def action_import_csv(self):
+
+        outfile = open('/mnt/c/Temp/new-data.csv', 'r')
+        file_base64 = base64.b64encode(bytes(outfile.read(), encoding='utf8'))
+        outfile.close()
+        attachment = {
+            'name'          : 'new-data.csv',
+            'datas'         : file_base64,
+            # 'datas_fname'   : 'new-data.csv',
+        }
+        attachment_id = self.env['ir.attachment'].create(attachment)
+        print(attachment_id.datas)
+        csv_file = attachment_id.datas.decode('base64')
+        self.import_csv(csv_file)
+
 
