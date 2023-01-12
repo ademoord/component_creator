@@ -7,7 +7,7 @@
     <field name="model">component.master</field>
     <field name="arch" type="xml">
         <tree>
-          <field name="name" string="Nama Komponen"/>
+          <field name="component_ids" string="Nama Komponen"/>
           <field name="process_time" string="Waktu Pengerjaan Komponen"/>
         </tree>
     </field>
@@ -22,7 +22,7 @@
         <form>
           <sheet>
             <group>
-              <field name="name"/>
+              <field name="component_ids"/>
               <field name="process_time"/>
             </group>
           </sheet>

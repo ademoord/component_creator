@@ -12,10 +12,24 @@
             <button name="action_import_csv" type="object" class="oe_highlight" string="Bismillah"/>
           </header>
           <field name="name" string="Nama Item"/>
-          <field name="component_name" string="Nama Komponen"/>
+          <field name="component_id" string="Nama Komponen"/>
           <field name="percentage" string="Bobot Persentase Komponen (%)"/>
           <field name="processing_start_date" string="Tanggal Mulai Pengerjaan"/>
           <field name="finished_real_date" string="Real Tanggal Selesai"/>
+
+          <t t-extend="ListView.buttons">
+            <t t-jquery="button.oe_list_add" t-operation="after">
+              <t t-if="widget.model=='item.master'">
+                <button class="oe_button oe_list_add_planing_daily oe_highlight"
+                type="button">Bismillah1</button>
+                <button class="oe_button oe_list_view_current_session oe_highlight"
+                type="button">Bismillah2</button>
+              </t>
+            </t>
+          </t>
+
+
+
         </tree>
     </field>
   </record>
@@ -30,7 +44,7 @@
           <sheet>
             <group>
               <field name="name"/>
-              <field name="component_name"/>
+              <field name="component_id"/>
               <field name="percentage"/>
               <field name="processing_start_date"/>
               <field name="finished_real_date"/>
