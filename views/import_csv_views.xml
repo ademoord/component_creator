@@ -1,0 +1,5 @@
+<t t-name="component_creator.import_csv_views">
+    <form>
+        <input type="file" name="my_csv_file" accept=".csv" onchange="submit_form()"/>
+    </form>
+</t>

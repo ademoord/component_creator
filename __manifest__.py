@@ -22,13 +22,18 @@
     'sequence': -100,
 
     # always loaded
+    # 'qweb': ['qweb.xml'],
     'data': [
         'security/ir.model.access.csv',
         'views/menu_views.xml',
         'views/component_master_views.xml',
         'views/item_master_views.xml',
-],
-
+        # 'views/import_csv_views.xml',
+    ],
+    'js': [
+        'static/src/import_csv_button.js'
+    ],
+    
     'installable': True,
     'auto_install': False,
     'application': True,
