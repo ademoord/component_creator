@@ -1,14 +1,17 @@
-<!-- <t t-extend="ListView.buttons">
+
+
+<!-- <t t-extend="ListView.buttons" t-name="ServiceListView.buttons">
     <t t-extend="ListView.buttons">
         <t  t-jquery="button.o_list_button_add" t-operation="after">
-            <button t-if="widget.modelName == 'item.master'" class="btn btn-primary btn-sm o_list_button_upload" accesskey="f">
+            <button t-if="widget.modelName == 'service.master'" class="btn btn-primary btn-sm o_list_button_upload_alkeba" accesskey="f">
                 Import CSV
             </button> 
         </t>
     </t>
 </t> -->
 
-<t t-extend="ListView.buttons">
+
+<!-- <t t-extend="ListView.buttons">
 
 <t t-extend="ListView.buttons" id="template" xml:space="preserve">
     <t t-jquery="button.o_list_button_add" t-operation="after">
@@ -18,4 +21,36 @@
     </t>
 </t>
 
-</t>
+</t> -->
+
+<!-- <t t-extend="ImportView.buttons" >
+    <t t-extend="ImportView.buttons">
+        <t t-jquery="button.o_list_button_add" t-operation="after">
+            <button t-if="widget.modelName == 'service.master'" class="btn btn-primary oe_import_file" accesskey="f">
+                AlkebaDebug
+            </button> 
+        </t>
+    </t>
+</t> -->
+
+<!-- <t t-extend="ImportView.buttons">
+    <t t-extend="ImportView.buttons">
+        <t t-jquery="button.oe_list_button_add" t-operation="after">
+            <div t-if="widget.modelName == 'service.master'" class=".oe_import_box col-sm-9">
+                <div class="col-sm-12">
+                    <p>AlkebaDebug<a href="https://www.odoo.com/documentation/user/10.0/general/base_import/import_faq.html" target="new" class="pull-right">Help</a></p>
+                </div>
+            </div>
+        </t>
+    </t>
+</t> -->
+
+<!-- <t t-extend="ListView.buttons">
+    <t t-extend="ImportView.import_button">
+        <t t-jquery="button.o_button_import" t-operation="after" >
+            <button name="button_import" type="button" t-if="widget.modelName == 'service.master'" class="btn btn-sm btn-default o_import_button o_import_import">
+                AlkebaBismillah
+            </button>
+        </t>
+    </t>
+</t> -->

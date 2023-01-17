@@ -3,7 +3,7 @@
 
   <!-- start of component master menu view -->
   <menuitem id="menu_component_creator_root"
-            name="Component Creator"
+            name="Alkeba Master Creator"
             sequence="0"/>
   <menuitem id="menu_component_master"
             name="Component Master"
@@ -11,6 +11,10 @@
             sequence="0"/>
   <menuitem id="menu_component_master"
             name="Item Master"
+            parent="menu_component_creator_root"
+            sequence="0"/>
+  <menuitem id="menu_service_master"
+            name="Service Master"
             parent="menu_component_creator_root"
             sequence="0"/>
   <!-- end of component master menu view -->

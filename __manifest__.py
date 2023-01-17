@@ -27,7 +27,7 @@
         'views/menu_views.xml',
         'views/component_master_views.xml',
         'views/item_master_views.xml',
-        # 'data/item.master.csv',
+        'views/service_master_views.xml',
     ],
 
     'installable': True,
