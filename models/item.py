@@ -1,11 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api, exceptions
-import csv
-import base64
-import io
-import logging
-
-_logger = logging.getLogger(__name__)
+import csv, base64, io
 
 class ItemMaster(models.Model):
     _name = 'item.master'
@@ -16,33 +11,35 @@ class ItemMaster(models.Model):
     percentage = fields.Float(string='Bobot Persentase Komponen (%)', digits=(4,2), required=True)
     processing_start_date = fields.Date(string='Tanggal Mulai Pengerjaan', required=True)
     finished_real_date = fields.Date(string='Real Tanggal Selesai', required=True)
-    # attachment_ids = fields.Many2one(comodel_name='ir.attachment', string='Bismillah')
 
     @api.constrains('percentage')
     def _check_percent(self):
         print('_check_percent')
         if self.percentage > 100:
             raise exceptions.ValidationError("Maaf, bobot persentase harus dalam range 0-100%.")
-        
+
     def import_csv(self, attachment):
        csv_data = base64.b64decode(attachment.datas).decode('utf-8')
-       csv_file = io.StringIO(csv_data)
+    #    csv_file = io.StringIO(csv_data)
+       
+       vals = {}       
+       with open('test.csv', 'r') as csvfile:
+    #    with open(csv_data, 'r') as csvfile:
+           csvreader = csv.reader(csvfile)
+           next(csvreader)
+           for row in csvreader:
+               vals = {
+                'id'                    : row[0],
+                'name'                  : row[1],
+                'component_id'          : row[2],
+                'percentage'            : row[3],
+                'processing_start_date' : row[4],
+                'finished_real_date'    : row[5],                 
+               }
+               existing_rec = self.env['item.master'].browse(vals['id'])
+               if existing_rec:
+                   self.env['item.master'].create(vals)
      
-       reader = csv.reader(csv_file)
-       next(reader)
-       for row in reader:
-           record = {
-               'id'                    : row[0],
-               'name'                  : row[1],
-               'component_id'          : row[2],
-               'percentage'            : row[3],
-               'processing_start_date' : row[4],
-               'finished_real_date'    : row[5],
-           }
-           existing_rec = self.env['item.master'].browse(record['id'])
-           if not existing_rec:
-               self.env['item.master'].create(record)
-
     def action_import_csv(self):
         outfile = open('test.csv', 'rb')
         data_record = outfile.read()
@@ -50,11 +47,11 @@ class ItemMaster(models.Model):
             'name': 'test.csv',
             'datas': base64.b64encode(data_record),
             'type': 'binary',
-            'store_fname': 'test.csv',
+            'res_model': 'item_master',
+            'store_fname': base64.b64encode(data_record),
             'mimetype': 'text/csv',
         }
-
         data_id = self.env['ir.attachment'].sudo().create(ir_values)
         self.import_csv(data_id)
+  
         
-

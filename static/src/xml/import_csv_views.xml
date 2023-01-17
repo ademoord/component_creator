@@ -1,0 +1,21 @@
+<!-- <t t-extend="ListView.buttons">
+    <t t-extend="ListView.buttons">
+        <t  t-jquery="button.o_list_button_add" t-operation="after">
+            <button t-if="widget.modelName == 'item.master'" class="btn btn-primary btn-sm o_list_button_upload" accesskey="f">
+                Import CSV
+            </button> 
+        </t>
+    </t>
+</t> -->
+
+<t t-extend="ListView.buttons">
+
+<t t-extend="ListView.buttons" id="template" xml:space="preserve">
+    <t t-jquery="button.o_list_button_add" t-operation="after">
+        <button t-if="widget.modelName != 'item.master'" class="btn btn-primary btn-sm sync_button"
+                type="button">BISMILLAH
+        </button>        
+    </t>
+</t>
+
+</t>

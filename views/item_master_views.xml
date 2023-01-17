@@ -8,6 +8,9 @@
     <field name="model">item.master</field>
     <field name="arch" type="xml">
         <tree>
+          <header>
+            <button name="action_import_csv" type="object" string="Import CSV"/>
+          </header>
           <field name="name" string="Nama Item"/>
           <field name="component_id" string="Nama Komponen"/>
           <field name="percentage" string="Bobot Persentase Komponen (%)"/>
@@ -64,7 +67,3 @@
 
   </data>
 </odoo>
-
-          <!-- <header>
-            <button name="action_import_csv" type="object" class="oe_highlight" string="Upload CSV"/>
-          </header> -->
