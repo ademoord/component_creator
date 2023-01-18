@@ -11,6 +11,18 @@
           <field name="emp_sum" string="Jumlah Keperluan Karyawan"/>
           <field name="desc" string="Deskripsi Layanan"/>
         </tree>
+  
+        <!-- <template id="example_template">
+          <div>
+              <input type="file" class="example_file_input" style="display: none;"/>
+              <button class="btn btn-primary btn-sm o_list_button_upload_alkeba" 
+                  accesskey="f" text="Import CSV JS"/>
+                  onclick="$('.example_file_input').click()"/>
+          </div>
+        </template>
+
+        <script type="text/javascript"/> -->
+
     </field>
   </record>
   <!-- end of service master tree -->

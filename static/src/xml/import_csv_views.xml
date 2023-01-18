@@ -1,15 +1,30 @@
 
 
-<!-- <t t-extend="ListView.buttons" t-name="ServiceListView.buttons">
-    <t t-extend="ListView.buttons">
-        <t  t-jquery="button.o_list_button_add" t-operation="after">
-            <button t-if="widget.modelName == 'service.master'" class="btn btn-primary btn-sm o_list_button_upload_alkeba" accesskey="f">
-                Import CSV
+<t t-extend="ListView.buttons">
+
+    <t t-extend="ListView.buttons" id="template" xml:space="preserve">
+        <t  t-jquery="button.o_list_button_add" t-operation="before">
+            <button t-if="widget.modelName == 'service.master'" t-on-click="widget.model.import_csv()" class="btn btn-primary btn-sm o_button_upload_alkeba" accesskey="f">
+                Alhamdulillah
             </button> 
         </t>
+        <t t-jquery="input[type='file']" t-operation="after">
+            <input type="file" name="file" style="display:none;"/>
+        </t>
     </t>
-</t> -->
 
+
+</t>
+
+
+    <!-- <t t-extend="ListView.buttons" id="template" xml:space="preserve">
+        <t  t-jquery="button.o_list_button_add" t-operation="before">
+            <button t-if="widget.modelName == 'service.master'" class="btn btn-primary btn-sm o_button_upload_alkeba" accesskey="f">
+                Nah..sebelum
+            </button> 
+        </t>
+    </t> -->
+<!-- </t> -->
 
 <!-- <t t-extend="ListView.buttons">
 

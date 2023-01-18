@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api, exceptions
+import csv, base64
 
 class ServiceMaster(models.Model):
     _name = 'service.master'
@@ -9,16 +10,22 @@ class ServiceMaster(models.Model):
     emp_sum = fields.Float(string="Jumlah Keperluan Karyawan", required=True)
     desc = fields.Char(string="Deskripsi Layanan", required=True)
     
-    # def test_import(self):
-    #     cfile = open('test.csv', 'rb')
-    #     data_record = outfile.read()
-    #     ir_values = {
-    #         'name': 'test.csv',
-    #         'datas': base64.b64encode(data_record),
-    #         'type': 'binary',
-    #         'res_model': 'item_master',
-    #         'store_fname': base64.b64encode(data_record),
-    #         'mimetype': 'text/csv',
-    #     }
-    #     data_id = self.env['ir.attachment'].sudo().create(ir_values)
-    #     self.import_csv(data_id)
+    def import_csv(self, attachment):
+       csv_data = base64.b64decode(attachment.datas).decode('utf-8')
+       
+       vals = {}       
+       with open('test.csv', 'r') as csvfile:
+           csvreader = csv.reader(csvfile)
+           next(csvreader)
+           for row in csvreader:
+               vals = {
+                'id'                    : row[0],
+                'name'                  : row[1],
+                'component_id'          : row[2],
+                'percentage'            : row[3],
+                'processing_start_date' : row[4],
+                'finished_real_date'    : row[5],                 
+               }
+               existing_rec = self.env['item.master'].browse(vals['id'])
+               if existing_rec:
+                   self.env['item.master'].create(vals)

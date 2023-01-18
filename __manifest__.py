@@ -36,6 +36,7 @@
     'assets': {
         'web.assets_backend': [
             'component_creator/static/src/js/import_csv.js',
+            # 'component_creator/static/src/js/handle_file_upload.js',
         ],
         'web.assets_qweb': [
             'component_creator/static/src/xml/import_csv_views.xml',
